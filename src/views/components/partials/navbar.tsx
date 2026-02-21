@@ -39,8 +39,8 @@ const MENU_DATA = [
   {
     title: "Qui sommes-nous ?",
     submenu: [
-      { title: "A propos de Bange Bank Cameroun", path: "/apropos" },
-      { title: "Missions et Valeurs", path: "/missions" },
+      { title: "A propos de Bange Bank Cameroun", path: "/about" },
+      { title: "Missions et Valeurs", path: "/mission" },
       { title: "Gouvernance", path: "/gouvernance" },
       { title: "Reseau au Cameroun", path: "/agribanking" },
       { title: "Carrières", path: "/carriers" }
