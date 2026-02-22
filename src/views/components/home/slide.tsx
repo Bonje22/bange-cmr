@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HERO_SLIDES } from '../../../data/herodata';
 
 export default function HeroCarousel() {
@@ -19,76 +20,90 @@ export default function HeroCarousel() {
   }, [nextSlide]);
 
   return (
-    /* HAUTEUR RÉDUITE : 400px mobile -> 480px desktop */
-    <section className="relative w-full h-100 lg:h-120 bg-gray-200 overflow-hidden shadow-inner">
+    <section className="relative w-full h-100 lg:h-120 bg-slate-900 overflow-hidden">
       
-      {/* --- SLIDES --- */}
-      {HERO_SLIDES.map((slide, index) => (
-        <div
-          key={slide.id}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            index === current ? "opacity-100 z-10" : "opacity-0 z-0"
-          }`}
-        >
-          {/* IMAGE : Optimisée avec object-cover */}
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
+      <AnimatePresence mode="wait">
+        {HERO_SLIDES.map((slide, index) => index === current && (
+          <motion.div
+            key={slide.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="absolute inset-0"
+          >
+            {/* 1. L'IMAGE : "Rule of Thirds" 
+                On utilise object-right pour s'assurer que le sujet (personne, GAB, etc.) 
+                est positionné à droite, laissant l'espace négatif à gauche pour le texte. */}
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-auto object-cover object-right lg:object-center transition-transform duration-10000  scale-110 animate-slow-zoom"
+            />
 
-          {/* MASQUE DÉGRADÉ : Plus sombre pour une lisibilité maximale */}
-          <div className="absolute inset-0 bg-linear-to-r from-black/80 via-black/30 to-transparent" />
+            {/* 2. OVERLAY DÉGRADÉ DE LISIBILITÉ :
+                - De Noir (90% opacité) à gauche pour protéger le texte.
+                - Vers Transparent à droite pour laisser voir le sujet de l'image. */}
+            <div className="absolute inset-0 bg-linear-to-r from-green-700/50 via-black/40 to-transparent z-10" />
 
-          {/* CONTENU TEXTUEL : Ajusté pour la nouvelle hauteur */}
-          <div className="absolute inset-0 flex items-center">
-            <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
-              <div className="max-w-2xl space-y-4 animate-in fade-in slide-in-from-left-8 duration-700">
-                <span className="inline-block px-3 py-1 bg-green-700 text-white text-[10px] font-black uppercase tracking-widest rounded shadow-lg">
-                  {slide.subtitle}
-                </span>
-                <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight tracking-tight">
-                  {slide.title}
-                </h2>
-                <p className="text-base md:text-lg text-gray-200 font-medium leading-relaxed opacity-90 max-w-lg">
-                  {slide.description}
-                </p>
-                <div className="pt-2">
-                  <button className="flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white px-7 py-3.5 rounded-full font-bold shadow-2xl transition-all active:scale-95 group text-sm tracking-tight">
-                    {slide.ctaText}
-                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </div>
+            {/* 3. CONTENU TEXTUEL (Placé dans le tiers gauche) */}
+            <div className="absolute inset-0 z-20 flex items-center">
+              <div className="max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <motion.div 
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="max-w-xl space-y-5"
+                >
+                  {/* Badge avec le Vert Bange exact #2A8A42 */}
+                  <div className="inline-block px-4 py-1.5 bg-[#2A8A42] border-l-4 border-green-300 rounded-sm shadow-xl">
+                    <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">
+                      {slide.subtitle}
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter drop-shadow-2xl">
+                    {slide.title}
+                  </h2>
+
+                  <p className="text-sm text-slate-200 font-medium leading-relaxed max-w-lg opacity-90">
+                    {slide.description}
+                  </p>
+
+                  <div className="pt-4">
+                    <button className="flex items-center gap-3 bg-[#2A8A42] hover:bg-[#237035] text-white px-8 py-4 rounded-full font-bold shadow-2xl transition-all active:scale-95 group text-sm uppercase tracking-widest">
+                      {slide.ctaText}
+                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                    </button>
+                  </div>
+                  
+                  {/* Barre de couleur Bordeaux Bange #862333 en accent */}
+                  <div className="w-20 h-1.5 bg-[#862333] rounded-full shadow-lg" />
+                </motion.div>
               </div>
             </div>
-          </div>
-        </div>
-      ))}
+          </motion.div>
+        ))}
+      </AnimatePresence>
 
-      {/* --- CONTRÔLES (Plus petits et élégants) --- */}
-      <div className="absolute bottom-6 right-6 md:right-12 flex gap-2 z-30">
-        <button 
-          onClick={prevSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white hover:text-green-700 transition-all cursor-pointer shadow-xl"
-        >
+      {/* --- CONTRÔLES (Soft UI Translucides) --- */}
+      <div className="absolute bottom-8 right-8 md:right-12 flex gap-3 z-30">
+        <button onClick={prevSlide} className="p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#2A8A42] transition-all cursor-pointer shadow-2xl">
           <ChevronLeft size={20} />
         </button>
-        <button 
-          onClick={nextSlide}
-          className="p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-white hover:text-green-700 transition-all cursor-pointer shadow-xl"
-        >
+        <button onClick={nextSlide} className="p-3 rounded-full bg-white/10 backdrop-blur-md text-white border border-white/20 hover:bg-[#2A8A42] transition-all cursor-pointer shadow-2xl">
           <ChevronRight size={20} />
         </button>
       </div>
 
-      {/* --- INDICATEURS (Dots discrets) --- */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
+      {/* --- INDICATEURS (Style Bange) --- */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-30">
         {HERO_SLIDES.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              current === i ? "w-6 bg-green-600 shadow-md" : "w-1.5 bg-white/30"
+            className={`h-1 rounded-full transition-all duration-500 ${
+              current === i ? "w-10 bg-[#2A8A42]" : "w-3 bg-white/30"
             }`}
           />
         ))}

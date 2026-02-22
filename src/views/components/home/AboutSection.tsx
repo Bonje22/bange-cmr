@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { STATS_DATA } from '../../../data/statsData';
@@ -82,7 +82,7 @@ export default function AboutSection() {
 
             <div className="pt-6">
               <button className="flex items-center gap-3 bg-white border border-gray-100 px-8 py-4 rounded-full font-bold text-gray-900 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all group">
-                En savoir plus sur notre histoire
+               <Link to="/about">En savoir plus sur notre histoire</Link> 
                 <ArrowRight size={20} className="text-green-700 group-hover:translate-x-1 transition-transform" />
               </button>
             </div>

@@ -15,7 +15,7 @@ export const QUICK_SERVICES = [
     icon: Wallet,
     color: "bg-green-50",
     iconColor: "text-green-700",
-    path: "/comptes"
+    path: "/produits/particuliers"
   },
   {
     id: 2,
@@ -33,7 +33,7 @@ export const QUICK_SERVICES = [
     icon: CreditCard,
     color: "bg-red-50",
     iconColor: "text-red-800",
-    path: "/cartes"
+    path: "/produits/cartes"
   },
   {
     id: 4,

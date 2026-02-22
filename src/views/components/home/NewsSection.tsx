@@ -1,7 +1,8 @@
 import  { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronLeft, ChevronRight, Plus, MessageCircle } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, Plus, MessageCircle, } from 'lucide-react';
 import { NEWS_DATA } from '../../../data/newsData';
+import { Link } from 'react-router-dom';
 
 export default function NewsSection() {
   const [centerIndex, setCenterIndex] = useState(0);
@@ -78,7 +79,7 @@ export default function NewsSection() {
                     
                     {/* Masque de couleur dynamique : Vert si actif, Noir si fond */}
                     <div className={`absolute inset-0 transition-all duration-700 ${
-                      isActive ? "bg-[#2A8A42]/55" : "bg-black/50"
+                      isActive ? "bg-green-950/40" : "bg-black/50"
                     }`} />
 
                     <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
@@ -87,7 +88,7 @@ export default function NewsSection() {
                         {news.title}
                       </h4>
                       <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em]">
-                         En savoir plus <Plus size={14} />
+                         <button className=''><Link to="">En savoir plus <Plus size={14} /></Link></button>
                       </div>
                     </div>
                   </div>

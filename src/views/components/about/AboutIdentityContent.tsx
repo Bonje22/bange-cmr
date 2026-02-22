@@ -3,7 +3,7 @@ import { INSTITUTION_PILLARS } from '../../../data/aboutIdentityData';
 
 export default function AboutIdentityContent() {
   return (
-    <div className="py-10 space-y-24">
+    <div className="py-15 space-y-24">
       
       {/* --- SECTION 1 : HISTOIRE ET GROUPE --- */}
       <section className="max-w-7xl mx-auto px-6">
@@ -41,7 +41,7 @@ export default function AboutIdentityContent() {
             className="relative"
           >
             <div className="rounded-[3rem] overflow-hidden shadow-2xl border-12 border-slate-50">
-              <img src="/images/bange-building.jpg" alt="Siège BANGE" className="w-full h-112.5 object-cover" />
+              <img src="/uploads/thumbnail/autres-services-bange-jpg-6.jpg" alt="Siège BANGE" className="w-full h-112.5 object-cover" />
             </div>
             {/* Badge flottant institutionnel */}
             <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-3xl shadow-xl border border-gray-100 max-w-50 text-center">

@@ -10,13 +10,14 @@ export default function AboutIdentityPage() {
         subtitle="DÉCOUVREZ L'INSTITUTION BANGE"
         description="Une banque universelle, solide et innovante, dédiée au développement économique de la zone CEMAC et du Cameroun."
         currentPage="À Propos"
-        backgroundImage="/images/about-hero.jpg" 
+        backgroundImage="/images/" 
       />
+      {/* SECTION HISTORIQUE AJOUTÉE ICI */}
+      <AboutHistory />
       {/* SECTION IDENTITE */}
       <AboutIdentityContent />
       
-      {/* SECTION HISTORIQUE AJOUTÉE ICI */}
-      <AboutHistory />
+      
       
     </div>
   );

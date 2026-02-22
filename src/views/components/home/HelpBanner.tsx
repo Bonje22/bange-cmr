@@ -14,7 +14,7 @@ export default function HelpBanner() {
 
       <div className="flex items-center gap-5 px-6 py-3 relative z-10">
         {/* Icône Soft UI Blanche */}
-        <div className="w-14 h-14 bg-white rounded-[1.5rem] flex items-center justify-center text-[#862333] shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform">
+        <div className="w-14 h-14 bg-white rounded-3xl flex items-center justify-center text-[#862333] shadow-lg transform -rotate-3 group-hover:rotate-0 transition-transform">
           <MessageCircle size={28} />
         </div>
         

@@ -4,3 +4,11 @@
 :root {
   --bange-green: #2A8A42;
 }
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+.animate-slow-zoom {
+  animation: slow-zoom 20s linear infinite alternate;
+}

@@ -60,12 +60,12 @@ const PageHero: React.FC<PageHeroProps> = ({
               </div>
 
               {/* TITRE */}
-              <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tighter drop-shadow-lg">
+              <h1 className="text-5xl md:text-5xl font-bold text-white leading-tight tracking-tighter drop-shadow-lg">
                 {title}
               </h1>
 
               {/* DESCRIPTION - Amélioration du contraste (text-white au lieu de slate-200) */}
-              <p className="text-lg md:text-xl text-white font-medium leading-relaxed max-w-2xl drop-shadow-md opacity-90">
+              <p className="text-lg md:text-lg italic text-white font-medium leading-relaxed max-w-2xl drop-shadow-md opacity-90">
                 {description}
               </p>
 

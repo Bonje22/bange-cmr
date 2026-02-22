@@ -9,7 +9,7 @@ export default function AboutPage() {
         subtitle="ENGAGÉS POUR L'EXCELLENCE FINANCIÈRE"
         currentPage="Missions & Valeurs"
         description="Notre ambition est de devenir la banque de référence en zone CEMAC, en proposant des solutions innovantes, sécurisées et accessibles qui simplifient la vie de nos clients."
-        backgroundImage="/images/about-hero.jpg"
+        backgroundImage="/images/mission.jpg"
         />
       <AboutVisionValues />
      

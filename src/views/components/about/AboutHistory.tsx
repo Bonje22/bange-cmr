@@ -4,11 +4,11 @@ import { Calendar, Target } from 'lucide-react';
 
 export default function AboutHistory() {
   return (
-    <section className="py-10 bg-white overflow-hidden">
+    <section className="py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* EN-TÊTE */}
-        <div className="text-center mb-24 space-y-4">
+        <div className="text-center mb-15 space-y-4">
           <span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#2A8A42]">Notre Parcours</span>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tighter">
             L'histoire d'une <span className="text-[#2A8A42]">ambition.</span>
@@ -22,7 +22,7 @@ export default function AboutHistory() {
           {/* Ligne centrale plus visible */}
           <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-slate-50 hidden lg:block -translate-x-1/2" />
 
-          <div className="space-y-16 lg:space-y-32">
+          <div className="space-y-16 lg:space-y-15">
             {HISTORY_STEPS.map((step, i) => (
               <div key={i} className={`flex flex-col lg:flex-row items-center justify-between w-full ${
                 step.side === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
