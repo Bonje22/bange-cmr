@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { INSTITUTION_PILLARS } from '../../../data/aboutIdentityData';
+import { INSTITUTION_PILLARS } from '../../../data/home/aboutIdentityData';
 
 export default function AboutIdentityContent() {
   return (

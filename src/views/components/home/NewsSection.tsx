@@ -43,9 +43,11 @@ export default function NewsSection() {
               Suivez l'actualité de <span className="text-[#2A8A42]">Bange Bank Cameroun </span>
             </h2>
           </div>
+          <Link to="/actualite" className="text-[#2A8A42] font-bold text-sm hover:underline">
           <button className="flex items-center gap-2 bg-[#2A8A42] text-white px-6 py-3 rounded-xl font-bold text-xs shadow-lg hover:shadow-green-900/20 transition-all uppercase tracking-widest cursor-pointer  hover:ease-in-out hover:-translate-y-1 active:scale-95">
             Tout voir <ArrowRight size={16} />
-          </button>
+          </button></Link>
+          
         </div>
 
         {/* SLIDER FOCUS CARRÉ COMPACT */}
@@ -122,7 +124,7 @@ export default function NewsSection() {
           </div>
           <div className="flex items-center gap-2 pr-4 pb-4 md:pb-0">
             <button className="bg-[#2A8A42] text-white px-7 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-green-800 transition-all shadow-lg active:scale-95">
-             Contactez-Nous <ArrowRight size={14} />
+            <Link to="/contact">Contactez-Nous <ArrowRight size={14} /></Link>
             </button>
           </div>
         </motion.div>

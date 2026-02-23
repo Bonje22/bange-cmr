@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import PageHero from '../components/partials/PageHero';
 import SideSelector from '../components/partials/SideSelector';
 import ProductDetailsCard from'../components/produit/ProductDetailsCard';
-import { BUSINESS_PRODUCTS } from '../../data/enterprisesData';
+import { BUSINESS_PRODUCTS } from '../../data/produit/enterprisesData';
 
 export default function EnterprisesPage() {
   const [activeTab, setActiveTab] = useState(BUSINESS_PRODUCTS[0].id);

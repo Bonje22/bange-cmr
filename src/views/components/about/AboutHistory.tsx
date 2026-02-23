@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion';
-import { HISTORY_STEPS } from '../../../data/aboutHistoryData';
+import { HISTORY_STEPS } from '../../../data/home/aboutHistoryData';
 import { Calendar, Target } from 'lucide-react';
 
 export default function AboutHistory() {
+  /**
+   * GENIE LOGICIEL : On crée une copie du tableau avant de l'inverser.
+   * On utilise [...array] pour ne pas muter (modifier) l'import original.
+   * toReversed() est aussi une option moderne, mais le spread est plus compatible.
+   */
+  const reversedHistory = [...HISTORY_STEPS].reverse();
+
   return (
     <section className="py-8 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -19,11 +26,15 @@ export default function AboutHistory() {
         {/* --- TIMELINE --- */}
         <div className="relative">
           
-          {/* Ligne centrale plus visible */}
+          {/* Ligne centrale verticale */}
           <div className="absolute left-1/2 top-0 bottom-0 w-1 bg-slate-50 hidden lg:block -translate-x-1/2" />
 
           <div className="space-y-16 lg:space-y-15">
-            {HISTORY_STEPS.map((step, i) => (
+            {reversedHistory.map((step, i) => (
+              /** 
+               * LOGIQUE VISUELLE : 
+               * On garde la disposition left/right définie dans tes données originales
+               */
               <div key={i} className={`flex flex-col lg:flex-row items-center justify-between w-full ${
                 step.side === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
               }`}>
@@ -53,25 +64,23 @@ export default function AboutHistory() {
                   </div>
                 </motion.div>
 
-                {/* 2. INDICATEUR CENTRAL (La "Graine" qui pousse) */}
+                {/* 2. INDICATEUR CENTRAL */}
                 <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-16 h-16 bg-white border-4 border-slate-50 rounded-full items-center justify-center shadow-xl z-10">
                   <div className="w-10 h-10 bg-[#2A8A42] text-white rounded-full flex items-center justify-center shadow-lg animate-pulse">
                     <Target size={18} />
                   </div>
                 </div>
 
-                {/* 3. BLOC ANNÉE DESKTOP (CORRIGÉ : Haute Visibilité) */}
+                {/* 3. BLOC ANNÉE DESKTOP */}
                 <motion.div 
                    initial={{ opacity: 0, scale: 0.5 }}
                    whileInView={{ opacity: 1, scale: 1 }}
                    className={`hidden lg:flex w-[42%] items-center ${step.side === 'left' ? 'justify-start pl-16' : 'justify-end pr-16'}`}
                 >
                   <div className="relative group">
-                    {/* Année en arrière-plan (plus foncée qu'avant) */}
-                    <span className="text-8xl font-black text-slate-200/60 tracking-tighter transition-colors group-hover:text-green-100">
-                      {step.year.substring(0, 4)}
+                    <span className="text-7xl font-black text-slate-200/60 tracking-tighter transition-colors group-hover:text-green-100">
+                      {step.year.toString().substring(0, 4)}
                     </span>
-                    {/* Année en avant-plan (Texte solide) */}
                     <span className="absolute top-1/2 left-0 -translate-y-1/2 text-4xl font-black text-[#2A8A42] tracking-widest drop-shadow-sm">
                       {step.year}
                     </span>

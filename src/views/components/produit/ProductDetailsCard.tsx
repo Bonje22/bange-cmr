@@ -17,7 +17,7 @@ interface ProductProps {
 
 export default function ProductDetailsCard({ 
   product, 
-  ctaText = "DECOUVREZ  NOS PACKAGES BANCAIRES", 
+  ctaText = "Ouvrir un compte", 
   ctaLink = "#", 
   isBusiness = false 
 }: ProductProps){  return (
@@ -39,9 +39,9 @@ export default function ProductDetailsCard({
           </div>
           <div className="bg-[#F8FAFC] p-6 rounded-4xl border border-gray-100 space-y-4 shadow-inner">
             {product.stats.map((s, i) => (
-              <div key={i} className="flex justify-between items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+              <div key={i} className="flex justify-between items-center border-b border-gray-100 pb-3 last:border-0 last:pb-0 ">
                 <span className="text-[10px] font-black uppercase text-gray-400">{s.label}</span>
-                <span className="text-sm font-black text-[#2A8A42]">{s.value}</span>
+                <span className="text-sm font-black  text-[#2A8A42]">{s.value}</span>
               </div>
             ))}
           </div>
@@ -77,7 +77,7 @@ export default function ProductDetailsCard({
         </div>
 
         {/* 3. CTA */}
-        <div className="pt-10 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-5 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[11px] text-gray-400 font-medium italic">
             {isBusiness ? "Service réservé aux personnes morales." : "Service réservé aux personnes physiques."} Voir conditions en agence.
           </p>

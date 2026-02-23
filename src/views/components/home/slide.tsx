@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HERO_SLIDES } from '../../../data/herodata';
+import { HERO_SLIDES } from '../../../data/home/herodata';
 
 export default function HeroCarousel() {
   const [current, setCurrent] = useState(0);

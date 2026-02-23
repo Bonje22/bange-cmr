@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import PageHero from '../components/partials/PageHero';
 import SideSelector from '../components/partials/SideSelector';
 import ProductDetailsCard from '../components/produit/ProductDetailsCard';
-import { PARTICULAR_PRODUCTS } from '../../data/particularsData';
+import { PARTICULAR_PRODUCTS } from '../../data/produit/particularsData';
 
 export default function ParticularsPage() {
   const [activeTab, setActiveTab] = useState(PARTICULAR_PRODUCTS[0].id);

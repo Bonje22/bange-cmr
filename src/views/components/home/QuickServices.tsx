@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { motion, type Variants } from 'framer-motion';
-import { QUICK_SERVICES } from '../../../data/servicesData';
+import { QUICK_SERVICES } from '../../../data/home/servicesData';
 
 export default function QuickServices() {
   

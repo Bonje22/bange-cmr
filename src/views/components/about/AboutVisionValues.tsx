@@ -1,5 +1,5 @@
 import { motion, type Variants } from 'framer-motion';
-import { PRINCIPLES, BANGE_VALUES } from '../../../data/aboutData';
+import { PRINCIPLES, BANGE_VALUES } from '../../../data/home/aboutData';
 import { Quote } from 'lucide-react';
 
 export default function AboutVisionValues() {

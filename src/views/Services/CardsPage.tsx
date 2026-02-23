@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck,  Info, Lock } from 'lucide-react';
 import PageHero from '../components/partials/PageHero';
-import { CARDS_DATA } from '../../data/cardsData';
+import { CARDS_DATA } from '../../data/produit/cardsData';
 
 export default function CardsPage() {
   const [activeTab, setActiveTab] = useState(CARDS_DATA[0].id);
